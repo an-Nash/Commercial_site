@@ -1,0 +1,341 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"request"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"ht",
+				"HttpResponse"
+			],
+			[
+				"p",
+				"Product"
+			],
+			[
+				"pr",
+				"product_pre_save_reciever"
+			],
+			[
+				"htt",
+				"Http404"
+			],
+			[
+				"get",
+				"get_object_or_404"
+			],
+			[
+				"fe",
+				"featured"
+			],
+			[
+				"P",
+				"ProductQuerySet"
+			],
+			[
+				"de",
+				"default"
+			],
+			[
+				"pro",
+				"product"
+			],
+			[
+				"fi",
+				"final_filename"
+			],
+			[
+				"for",
+				"format"
+			],
+			[
+				"e",
+				"exists"
+			],
+			[
+				"u",
+				"user"
+			],
+			[
+				"us",
+				"username"
+			],
+			[
+				"fo",
+				"forms"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
+				"pa",
+				"password2"
+			],
+			[
+				"me",
+				"method"
+			],
+			[
+				"login",
+				"login_page"
+			],
+			[
+				"cl",
+				"cleaned_data"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
+				"Lo",
+				"LoginForm"
+			],
+			[
+				"con",
+				"context"
+			],
+			[
+				"lo",
+				"login_page"
+			],
+			[
+				"form",
+				"form"
+			],
+			[
+				"C",
+				"CharField"
+			],
+			[
+				"ab",
+				"about_form"
+			],
+			[
+				"Co",
+				"ContactForm"
+			],
+			[
+				"co",
+				"contact_form"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"hom",
+				"home_page"
+			],
+			[
+				"abou",
+				"about_page"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/nashr/dev/toxic",
+		"/C/Users/nashr/dev/toxic/src",
+		"/C/Users/nashr/dev/toxic/src/ecommerce"
+	],
+	"file_history":
+	[
+		"/C/Users/nashr/dev/pixel/src/ecommerce/urls.py",
+		"/C/Users/nashr/dev/toxic/src/templates/home_page.html",
+		"/C/Users/nashr/dev/toxic/src/ecommerce/views.py",
+		"/C/Users/nashr/dev/pixel/src/ecommerce/views.py",
+		"/C/Users/nashr/dev/pixel/src/templates/home_page.html",
+		"/C/Users/nashr/dev/toxic/src/ecommerce/settings.py",
+		"/C/Users/nashr/dev/pixel/src/ecommerce/settings.py",
+		"/C/Users/nashr/dev/ecommerce/src/static_my_proj/css/main.css",
+		"/C/Users/nashr/dev/ecommerce/src/ecommerce/views.py",
+		"/C/Users/nashr/dev/ecommerce/src/products/templates/products/list.html",
+		"/C/Users/nashr/dev/ecommerce/src/products/templates/products/featured-detail.html",
+		"/C/Users/nashr/dev/ecommerce/src/products/models.py",
+		"/C/Users/nashr/dev/ecommerce/src/templates/base/css.html",
+		"/C/Users/nashr/dev/ecommerce/src/templates/base/js.html",
+		"/C/Users/nashr/dev/ecommerce/src/templates/home_page.html",
+		"/C/Users/nashr/dev/ecommerce/src/templates/contact/view.html",
+		"/C/Users/nashr/dev/ecommerce/src/products/views.py",
+		"/C/Users/nashr/dev/ecommerce/src/products/utils.py",
+		"/C/Users/nashr/dev/ecommerce/src/ecommerce/urls.py",
+		"/C/Users/nashr/dev/ecommerce/src/products/urls.py",
+		"/C/Users/nashr/dev/ecommerce/src/templates/base/navbar.html",
+		"/C/Users/nashr/dev/ecommerce/src/templates/base.html",
+		"/C/Users/nashr/dev/ecommerce/src/products/admin.py",
+		"/C/Users/nashr/dev/ecommerce/src/products/templates/products/detail.html",
+		"/C/Users/nashr/dev/ecommerce/src/templates/auth/login.html",
+		"/C/Users/nashr/dev/ecommerce/src/ecommerce/settings.py",
+		"/C/Users/nashr/dev/ecommerce/src/ecommerce/forms.py",
+		"/C/Users/nashr/dev/ecommerce/src/products/migrations/0001_initial.py",
+		"/C/Users/nashr/dev/ecommerce/src/templates/about/view.html",
+		"/C/Users/nashr/dev/ecommerce/ecommerce",
+		"/C/Users/nashr/dev/ecommerce/src/templates/auth/register.html"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 46.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ecommerce.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 223.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
