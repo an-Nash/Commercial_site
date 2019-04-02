@@ -14,3 +14,8 @@ class ContactForm(forms.Form):
 		if not "gmail.com" in email:
 			raise forms.ValidationError("Email has to be gmail")
 		return email
+
+
+class LoginForm(forms.Form):
+	username = forms.CharField()
+	password = forms.CharField(widget=forms.PasswordInput)
