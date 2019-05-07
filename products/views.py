@@ -25,6 +25,26 @@ class ProductFeaturedDetailView(DetailView):
 		return Product.objects.all().featured()
 
 
+class ProductDetailSlugView(DetailView):
+	queryset = Product.objects.all()
+	template_name = "products/detail.html"
+
+	def get_object(self, *args, **kwargs):
+		request = self.request
+		slug = self.kwargs.get('slug')
+		# instance = Product.objects.get_by_id(pk)
+		try:
+			instance = Product.objects.get(slug=slug)
+		except Product.DoesNotExist:
+			raise Http404("Not found..")
+		except Product.MultipleObjectsReturned:
+			qs = Product.objects.filter(slug=slug)
+			instance = qs.first()
+		except:
+			raise Http404("Uhhmmm")
+		return instance
+
+
 
 
 

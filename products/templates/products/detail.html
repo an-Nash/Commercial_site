@@ -1,3 +1,5 @@
 {{ object.title }}<br/>
 {{ object.description }}<br/>
+{% if objects.image %}
 <img src='{{ object.image.url }}' class='img-fluid' />
+{% endif %}
