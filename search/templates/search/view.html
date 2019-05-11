@@ -2,12 +2,33 @@
 
 
 {% block content %}
+
+	<div class='row'>
+
+		{% if request.GET.q %}
+	<div class='container'>
+		<div class='col-12 mb-5 py-3'>Result for <b>{{ request.GET.q }}</b>
+		</div>
+	</div>
+
+		{% else %}
+		<div class='col-12 col-md-8 mx-auto'>
+			{% include "search/snippets/search-form.html" %}
+		</div>
+
+		{% endif %}
+	</div>
+
+
+
+
+
 <div class='container'>
 	<div class='row'>
+
 		{% for obj in object_list %}
 			<div class='col'>
 
-		<!-- 	{{ forloop.counter }} -->
 
 			{% include 'products/snippets/card.html' with instance=obj %}
 
@@ -26,5 +47,3 @@
 </div>
 
 {% endblock %}
-
-

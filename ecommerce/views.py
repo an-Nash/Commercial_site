@@ -44,7 +44,7 @@ def login_page(request):
 			login(request, user)
 			print(user.is_authenticated())
 			# context['form'] = LoginForm()
-			redirect("/login")
+			redirect("login/")
 		else:
 			print("Error")
 

@@ -39,6 +39,7 @@ urlpatterns = [
 	url(r'^contact/', contact_page, name='contact'),
 	url(r'^about/', about_page, name='about'),
 	url(r'^products/', include("products.urls", namespace='products')),
+	url(r'^search/', include("search.urls", namespace='search')),
 	# url(r'^products/$', ProductListView.as_view()),
 	# url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
 	# url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
