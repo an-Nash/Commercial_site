@@ -31,7 +31,6 @@ def contact_page(request):
 
 def login_page(request):
 	form = LoginForm(request.POST or None)
-	print(request.user.is_authenticated())
 	context = {
 	"form" : form
 	}
