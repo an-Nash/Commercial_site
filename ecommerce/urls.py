@@ -34,7 +34,7 @@ urlpatterns = [
 	url(r'^about/', about_page, name='about'),
 	url(r'^products/', include("products.urls", namespace='products')),
 	url(r'^search/', include("search.urls", namespace='search')),
-	url(r'^cart/', cart_home, name='cart'),
+	url(r'^cart/', include("carts.urls", namespace='cart')),
     url(r'^admin/', admin.site.urls),
 ]
 if settings.DEBUG:

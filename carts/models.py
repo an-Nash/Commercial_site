@@ -36,7 +36,7 @@ class CartManager(models.Manager):
 		if user is not None:
 			if user.is_authenticated():
 				user_obj = user
-		return self.model.objects.create(user=user_obj)
+		return self.model.objects.cureate(ser=user_obj)
 
 
 class Cart(models.Model):
@@ -66,7 +66,9 @@ m2m_changed.connect(m2m_changed_cart_receiver, sender=Cart.products.through)
 
 
 def pre_save_cart_receiver(sender, instance, *args, **kwargs):
-	instance.total = instance.subtotal +10
-
+	if instance.subtotal > 0:
+		instance.total = instance.subtotal +10
+	else:
+		instance.subtotal = 0
 
 pre_save.connect(pre_save_cart_receiver, sender=Cart)
