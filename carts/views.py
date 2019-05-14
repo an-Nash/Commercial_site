@@ -6,7 +6,7 @@ from .models import Cart
 
 
 def cart_home(request):
-	cart_obj = Cart.objects.new_or_get(request)
+	cart_obj, new_obj = Cart.objects.new_or_get(request)
 	# request.session['cart_id'] = "12"
 	# cart_id = request.session.get("cart_id", None)
 	# qs = Cart.objects.filter(id=cart_id)
