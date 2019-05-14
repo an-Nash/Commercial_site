@@ -1,6 +1,8 @@
 <div class="card" style="width: 12rem;">
-{% if instance.image %}
+ {% if instance.image %}
+
      <img src="{{ instance.image.url }}" class="card-img-top" alt="...">
+   
  {% endif %}
 	  <div class="card-body">
 	    <h5 class="card-title">{{ instance.title }}</h5>

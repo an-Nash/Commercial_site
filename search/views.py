@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.db.models import Q
+
 from django.views.generic import ListView
 
 from products.models import Product

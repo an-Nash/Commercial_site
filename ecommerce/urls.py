@@ -22,13 +22,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 
 from .views import home_page, contact_page, about_page, login_page, register_page
-# from products.views import ( 
-# 	ProductListView, 
-# 	ProductDetailView, 
-# 	ProductFeaturedListView, 
-# 	ProductFeaturedDetailView,
-# 	ProductDetailSlugView
-# 	)
+from carts.views import cart_home
 	
 
 urlpatterns = [
@@ -40,12 +34,7 @@ urlpatterns = [
 	url(r'^about/', about_page, name='about'),
 	url(r'^products/', include("products.urls", namespace='products')),
 	url(r'^search/', include("search.urls", namespace='search')),
-	# url(r'^products/$', ProductListView.as_view()),
-	# url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-	# url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
-	# url(r'^featured/$', ProductFeaturedListView.as_view()),
-	# url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-	# url(r'^products-fb/(?P<pk>\d+)/$', product_detail_view),
+	url(r'^cart/', cart_home, name='cart'),
     url(r'^admin/', admin.site.urls),
 ]
 if settings.DEBUG:
