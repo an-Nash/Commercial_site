@@ -17,7 +17,9 @@
   	{% for product in cart.products.all %}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
-      <td>{{ product.title }}</td>
+      <td> <a href='{{ product.get_absolute_url }}'>{{ product.title }}</a>
+      {% include 'products/snippets/update-cart.html' with product=product cart=cart %}
+</td>
       <td>{{ product.price }}</td>
     </tr>
     {% endfor %}
