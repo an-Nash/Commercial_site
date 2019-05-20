@@ -33,7 +33,7 @@ class CartManager(models.Manager):
 		if user is not None:
 			if user.is_authenticated():
 				user_obj = user
-		return self.model.objects.cureate(ser=user_obj)
+		return self.model.objects.create(user=user_obj)
 
 
 class Cart(models.Model):
