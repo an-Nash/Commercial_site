@@ -6,9 +6,9 @@ from django.db.models.signals import post_save
 User = settings.AUTH_USER_MODEL
 # Create your models here.
 class BillingProfile(models.Model):
-	user      = models.OneToOneField(User,unique=True, null=True, blank=True)
+	user      = models.OneToOneField(User, null=True, blank=True)
 	email	  = models.EmailField()
-	active	  = models.BooleanField()
+	active	  = models.NullBooleanField()
 	update	  = models.DateTimeField(auto_now=True)
 	timestamp = models.DateTimeField(auto_now_add=True)
 

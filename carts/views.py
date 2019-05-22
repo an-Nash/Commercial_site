@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Cart
 from orders.models import Order
+from accounts.forms import LoginForm
+from billing.models import BillingProfile
 
 from products.models import Product
 
@@ -39,4 +41,16 @@ def checkout_home(request):
  		return redirect("cart:home")
  	else:
  		order_obj, new_order_obj = Order.objects.get_or_create(cart=cart_obj)
- 	return render(request, "carts/checkout.html", {"object":order_obj})
+ 	user = request.user
+ 	billing_profile = None
+ 	login_form = LoginForm()
+
+ 	if user.is_authenticated():
+ 		billing_profile, billing_created = BillingProfile.objects.get_or_create(user=user, email=user.email)
+
+ 	context = {
+ 	"object":order_obj,
+ 	"billing_profile": billing_profile,
+ 	"login_form" : login_form
+ 	}
+ 	return render(request, "carts/checkout.html", context)
