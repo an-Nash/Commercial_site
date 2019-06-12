@@ -20,7 +20,7 @@ def cart_home(request):
  
 
 def cart_update(request):
-	product_id = request.POST.get('product_id')
+	product_id = request.POST.get('product_id')#getting id of the product
 	if product_id is not None:
 		try:
 			product_obj = Product.objects.get(id=product_id)
@@ -69,15 +69,9 @@ def checkout_home(request):
  	else:
  		pass
 
- 	if billing_profile is not None:
-	 	order_qs = Order.objects.filter(billing_profile=billing_profile, cart=cart_obj, active=True)
-	 	if order_qs.count() == 1:
-	 		order_obj = order_qs.first()
-	 	else:
-	 		old_order_qs = Order.objects.exclude(billing_profile=billing_profile).filter(cart=cart_obj, active=True)
-	 		if old_order_qs.exists():
-	 			old_order_qs.update(active=False)
-	 		order_obj = Order.objects.create(billing_profile=billing_profile, cart=cart_obj)
+ 	# if billing_profile is not None:
+ 	# 	order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
+ 	
 
  	context = {
  	"object":order_obj,

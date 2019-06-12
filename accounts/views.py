@@ -46,7 +46,7 @@ def login_page(request):
 		if user is not None:
 			login(request, user)
 			try:
-				del request.session['guest_email_id']
+				del request.session['guest_email_id']  #After login we dont want to record guest email session.Thats why we are deleting it.
 			except: 
 				pass
 			if is_safe_url(redirect_path, request.get_host()):
