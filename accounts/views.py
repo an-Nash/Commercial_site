@@ -24,9 +24,9 @@ def guest_register_view(request):
 		if is_safe_url(redirect_path, request.get_host()):
 			redirect(redirect_path)
 		else:
-			return redirect("/register/")
+			return redirect("/cart/checkout/")
 
-	return redirect("/register/")
+	return redirect("/cart/checkout/")
 
 
 
@@ -45,6 +45,10 @@ def login_page(request):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
+			try:
+				del request.session['guest_email_id']
+			except: 
+				pass
 			if is_safe_url(redirect_path, request.get_host()):
 				redirect(redirect_path)
 			else:
