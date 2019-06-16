@@ -11,24 +11,24 @@ User = settings.AUTH_USER_MODEL
 
 class CartManager(models.Manager):
 	def new_or_get(self, request):
-		cart_id = request.session.get("cart_id", None)
-		qs = Cart.objects.filter(id=cart_id)
+		cart_id = request.session.get("cart_id", None)         #Cart id session creating
+		qs = Cart.objects.filter(id=cart_id)                   #Lookup cart session as id
 		if qs.count() == 1:
 			new_obj = False
-			print('Cart Id exists')
-			cart_obj = qs.first()
-			if request.user.is_authenticated() and cart_obj.user is None:
-				cart_obj.user = request.user
-				cart_obj.save()
-		else:
-			cart_obj = Cart.objects.new(user=request.user)
+			print('Cart Id exists')                            #If session exists then cart is also exists
+			cart_obj = qs.first()                              #Reassign existing session as first 
+			if request.user.is_authenticated() and cart_obj.user is None:  #if user authenticated and user of cart is null-->then
+				cart_obj.user = request.user                   #Assign user who is requesting as current user of current cart obj
+				cart_obj.save()                                #Save user and current null cart for the user
+		else:                                                  #cart doesnt exist neither user
+			cart_obj = Cart.objects.new(user=request.user)     #creating user of the current cart
 			new_obj = True
-			request.session['cart_id'] = cart_obj.id
+			request.session['cart_id'] = cart_obj.id           #creating new session for new cart
 			print("Cart Created")
 		return cart_obj, new_obj
 
 
-	def new(self, user=None):
+	def new(self, user=None):                                  #new method for creating new user
 		user_obj = None
 		if user is not None:
 			if user.is_authenticated():

@@ -25,6 +25,7 @@ from django.contrib.auth.views import LogoutView
 
 from accounts.views import  login_page, register_page, guest_register_view
 from .views import home_page, contact_page, about_page
+from addresses.views import checkout_address_create_view
 from carts.views import cart_home
 	
 
@@ -34,6 +35,7 @@ urlpatterns = [
 	url(r'^logout/', LogoutView.as_view(), name='logout'),
 	url(r'^register/guest', guest_register_view, name='guest_register_view'),
 	url(r'^register/', register_page, name='register'),
+	url(r'^checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
 	url(r'^bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
 	url(r'^contact/', contact_page, name='contact'),
 	url(r'^about/', about_page, name='about'),

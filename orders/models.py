@@ -28,7 +28,7 @@ class OrderManager(models.Manager):
 				billing_profile=billing_profile,
 				cart=cart_obj)
 			created = True
-		return obj
+		return obj, created
 
 
 
