@@ -19,6 +19,40 @@
     
 
     {% include "base/js.html" %}
+    <script>
+      $(document).ready(function(){
+        var productForm = $(".form-product-ajax")
+
+
+        productForm.submit(function(event){
+          event.preventDefault();
+          var thisForm = $(this)
+          var action = thisForm.attr("action");
+          var httpMethod = thisForm.attr("method");
+          var formData = thisForm.serialize();
+
+          $.ajax({
+            url:action,
+            method: httpMethod,
+            data: formData,
+            success: function(data){
+              var submitSpan = thisForm.find(".submit-span")
+              if (data.added){
+                submitSpan.html("<button type='submit' class='btn btn-success'>Remove</button>")
+              }
+              else{
+                submitSpan.html("<button type='submit' class='btn btn-success'> Add to cart</button>")
+              }
+              var cartCount = $(".navbar_cart_count")
+              cartCount.text(data.countCartItem);
+            },
+            error: function(errorData){
+              console.log('error')
+            }
+          })
+        })
+      })
+    </script>
 
   </body>
 </html>
