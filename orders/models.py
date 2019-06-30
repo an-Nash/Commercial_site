@@ -61,7 +61,6 @@ class Order(models.Model):
 	def check_done(self):
 		billing_profile = self.billing_profile
 		shipping_address = self.shipping_address
-		billing_address = self.billing_address
 		total = self.total
 		if billing_profile and shipping_address and total > 0:
 			return True
