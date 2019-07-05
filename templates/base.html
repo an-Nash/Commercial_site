@@ -21,6 +21,41 @@
     {% include "base/js.html" %}
     <script>
       $(document).ready(function(){
+
+        //auto search
+        var serachForm = $(".search-form")
+        var searchInput = serachForm.find("[name='q']")
+        var typingTimer;
+        var typingInterval = 100
+        var searchBtn = serachForm.find("[type='submit']")
+
+        searchInput.keyup(function(event){
+          clearTimeout(typingTimer)
+
+          typingTimer = setTimeout(performSearch, typingInterval)
+        })
+
+        searchInput.keydown(function(event){
+          clearTimeout(typingTimer)
+        })
+
+        function doSearch(){
+          searchBtn.addClass("disabled")
+          searchBtn.html("<i class='fa faspin fa-spinner'></i> Searching...")
+
+        }
+        function performSearch(){
+          doSearch()
+          var query = searchInput.val()
+          setTimeout(function(){
+            window.location.href = '/search/?q=' + query
+          }, 1000)
+        }
+
+
+
+
+        //add cart
         var productForm = $(".form-product-ajax")
 
 
