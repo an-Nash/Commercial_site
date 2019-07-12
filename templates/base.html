@@ -21,6 +21,62 @@
     {% include "base/js.html" %}
     <script>
       $(document).ready(function(){
+        //contact ajax
+        var contactForm = $(".contact-form")
+        var contactFormMethod = contactForm.attr("method")
+        var contactFormEndpoint = contactForm.attr("action")
+        var contactFormSubmitBtn = contactForm.find("[type='submit']")
+        var contactFormSubmitBtnTxt = contactFormSubmitBtn.text()
+
+        function displaySubmitting(doSubmit){
+          if (doSubmit){
+            contactFormSubmitBtn.addClass("disabled")
+            contactFormSubmitBtn.html("<i class='fa faspin fa-spinner'></i> Sending..")
+          }
+          else{
+            contactFormSubmitBtn.removeClass("disabled")
+            contactFormSubmitBtn.html(contactFormSubmitBtnTxt)
+          }
+        }
+
+
+
+        contactForm.submit(function(event){
+          event.preventDefault()
+          var contactFormData = contactForm.serialize()
+          var thisForm = $(this)
+          displaySubmitting(true)
+          $.ajax({
+            url :contactFormEndpoint,
+            method :contactFormMethod,
+            data :contactFormData,
+            success : function(data){
+              console.log("succes")
+              contactForm[0].reset()
+              alert("Thanks for your submission")
+              setTimeout(function(){
+                displaySubmitting(false)
+              }, 2000)
+            },
+            error : function(error){
+              console.log(error.responseJSON)
+              var jsonData = error.responseJSON
+              var msg = ""
+
+              $.each(jsonData, function(key, value){
+                msg += key + ":" + value[0].message + "<br/>"
+              })
+
+              alert(msg)
+            }
+          })
+        })
+
+
+
+
+
+
 
         //auto search
         var serachForm = $(".search-form")
