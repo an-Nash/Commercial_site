@@ -16,3 +16,4 @@ class ContactForm(forms.Form):
 			raise forms.ValidationError("Email has to be gmail")
 		return email
 
+		

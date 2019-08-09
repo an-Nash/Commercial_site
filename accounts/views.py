@@ -29,7 +29,6 @@ def guest_register_view(request):
 	return redirect("/cart/checkout/")
 
 
-
 def login_page(request):
 	form = LoginForm(request.POST or None)
 	context = {
