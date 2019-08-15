@@ -66,7 +66,6 @@ def cart_update(request):
 def checkout_home(request):
  	cart_obj, cart_created = Cart.objects.new_or_get(request)
  	order_obj = None
-
  	if cart_created or cart_obj.products.count() == 0:
  		return redirect("cart:home")
 
@@ -75,11 +74,11 @@ def checkout_home(request):
  	address_form = AddressForm()
  	billing_address_form = AddressForm()
 
- 	billing_address_id = request.session.get("billing_address_id", None)
+ 	# billing_address_id = request.session.get("billing_address_id", None)
  	shipping_address_id = request.session.get("shipping_address_id", None)
 
 
- 	billing_profile = BillingProfile.objects.new_or_get(request)
+ 	billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
  	address_qs = None
 
  	if billing_profile is not None:
@@ -93,14 +92,14 @@ def checkout_home(request):
  		# 	del request.session["billing_address_id"]
  		if shipping_address_id:
  			order_obj.save()
- 	if request.method == "POST":
- 	 	is_done = order_obj.check_done()
- 	 	if is_done:
- 	 		order_obj.mark_paid()
- 	 		print('yessssss')
- 	 		request.session['cart_items'] = 0
- 	 		del request.session['cart_id']
- 	 		return redirect("cart:success")
+ 	is_done = order_obj.check_done()
+ 	if request.method == "GET":
+	 	if is_done:
+	 		order_obj.mark_paid()
+	 		print('yessssss')
+	 		request.session['cart_item'] = 0
+	 		del request.session['cart_id']
+	 		return redirect("cart:success")
  	context = {
  	"object": order_obj,
  	"billing_profile": billing_profile,
