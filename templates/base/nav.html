@@ -1,5 +1,6 @@
 {% url 'home' as home_url %}
 {% url 'contact' as contact_url %}
+{% url 'about' as about_url %}
 {% url 'products:list' as product_url %}
 {% url 'login' as login_url %}
 {% url 'logout' as logout_url %}
@@ -20,12 +21,15 @@
 	      <li class="nav-item {% if request.path == contact_url %} active {% endif %}">
 	        <a class="nav-link" href="{{ contact_url }}">Contact</a>
 	      </li>
+	      <li class="nav-item {% if request.path == about_url %} active {% endif %}">
+	        <a class="nav-link" href="{{ about_url }}">About us </a>
+	      </li>
 	      <li class="nav-item {% if request.path == product_url %} active {% endif %}">
 	        <a class="nav-link" href="{{ product_url }}">Products</a>
 	      </li>
 	      {% if request.user.is_authenticated %}
 	      <li class="nav-item {% if request.path == logout_url %} active {% endif %}">
-	        <a class="nav-link" href="{{ logout_url }}">LogOut</a>
+	        <a class="nav-link" href="{{ logout_url }}">Log Out</a>
 	      </li>
 	      {% else %}
 	      <li class="nav-item {% if request.path == login_url %} active {% endif %}">

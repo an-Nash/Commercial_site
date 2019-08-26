@@ -82,7 +82,7 @@ def checkout_home(request):
  	address_qs = None
 
  	if billing_profile is not None:
- 		address_qs = Address.objects.filter(billing_profile=billing_profile)
+ 		address_qs = Address.objects.filter(billing_profile = billing_profile)
  		order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
  		if shipping_address_id:
  			order_obj.shipping_address = Address.objects.get(id=shipping_address_id)
@@ -92,14 +92,14 @@ def checkout_home(request):
  		# 	del request.session["billing_address_id"]
  		if shipping_address_id:
  			order_obj.save()
- 	is_done = order_obj.check_done()
- 	if request.method == "GET":
-	 	if is_done:
-	 		order_obj.mark_paid()
-	 		print('yessssss')
-	 		request.session['cart_item'] = 0
-	 		del request.session['cart_id']
-	 		return redirect("cart:success")
+ 	# is_done = order_obj.check_done()
+ 	# if request.method == "GET":
+	 # 	if is_done:
+	 # 		order_obj.mark_paid()
+	 # 		print('yessssss')
+	 # 		request.session['cart_item'] = 0
+	 # 		del request.session['cart_id']
+	 # 		return redirect("cart:success")
  	context = {
  	"object": order_obj,
  	"billing_profile": billing_profile,

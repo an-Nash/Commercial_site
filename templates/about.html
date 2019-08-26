@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class='text-center'>
+  <h1>Wanna know about us?</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p>{{ title }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p>This site is run and owned by Reeves and Sons Limited, and our physical address is: 18 Ashwin Street, E8 3DL, London, United Kingdom.
+
+    Long story short
+    Ecommerce platforms are one of the most used types of CMSes and there are more and more apps popping out (more than 120!). That's why comparison websites started to include ecommerce platforms to their inventory. However, I've noticed some of these sites are quite biased and falsely rank particular platforms higher than others because of financial incentives, so I decided to start my own blog and comparison chart for these type.
+
+    What this site is all about
+    Ecommerce-Platforms.com is an unbiased review site that shows the good, great, bad, and ugly of online store building software. We strive to provide you with easy to read (and sometimes fun) objective reviews that will help you choose which ecommerce platform is right for you. We do get affiliate commissions from some of the solutions we're reviewing and comparing but this doesn't influence our writings in any way!</p>
+     <form method="POST" action='{% url "contact" %}'> {% csrf_token %}
+          
+          {{ form }}
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    
+  </div>
+</div>
+
+
+
+{% endblock %}
+
