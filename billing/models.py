@@ -1,11 +1,13 @@
 from django.db import models
 from django.conf import settings
 from accounts.models import GuestEmail
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 
 
 User = settings.AUTH_USER_MODEL
 # Create your models here.
+import stripe
+stripe.api_key = "sk_test_ZcsfoeeilUpgqPWvntcnP5gH00P3pdKvTc"
 
 class BillingProfileManager(models.Manager):
 	def new_or_get(self, request):
@@ -29,11 +31,23 @@ class BillingProfile(models.Model):
 	active	  = models.NullBooleanField()
 	update	  = models.DateTimeField(auto_now=True)
 	timestamp = models.DateTimeField(auto_now_add=True)
+	customer_id= models.CharField(max_length = 120, null=True,blank=True)
 
 	def __str__(self):
 		return self.email
 
 	objects = BillingProfileManager()
+
+def billing_profile_created_receiver(sender, instance, *args, **kwargs):
+	if not instance.customer_id and instance.email:
+		print("Actual API request send to stripe")
+		customer = stripe.Customer.create(
+			email = instance.email
+			)
+		print(customer)
+		instance.customer_id = customer.id
+
+pre_save.connect(billing_profile_created_receiver, sender=BillingProfile)
 
 
 def user_created_receiver(sender, instance, created, *args, **kwargs):

@@ -69,6 +69,8 @@ def post_save_session_receiver(sender, instance, created, *args, **kwargs):
 		qs = UserSession.objects.filter(user=instance.user, ended=False, active=False).exclude(id=instance.id)
 		for i in qs:
 			i.end_session()
+	if not instance.active and not instance.ended:
+		instance.end_session()
 
 
 post_save.connect(post_save_session_receiver, sender=UserSession)
